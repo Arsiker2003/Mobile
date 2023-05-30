@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         // Make sure the correct dessert is showing
         binding.dessertButton.setImageResource(currentDessert.imageId)
         Timber.i("onCreate called")
-        dessertTimer = DessertTimer()
+        dessertTimer = DessertTimer(this.lifecycle)
     }
 
     /**

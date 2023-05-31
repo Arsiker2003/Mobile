@@ -1,7 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (C) 2020 The Android Open Source Project
   ~
@@ -18,11 +17,14 @@
   ~ limitations under the License.
   -->
 <data>
-
+    <variable
+        name="gameViewModel"
+        type="com.example.android.unscramble.ui.game.GameViewModel" />
+    <variable
+        name="maxNoOfWords"
+        type="int" />
 </data>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -72,6 +74,7 @@
             android:layout_marginTop="@dimen/default_margin"
             android:layout_marginBottom="@dimen/default_margin"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+            android:text="@{gameViewModel.currentScrambledWord}"
             app:layout_constraintBottom_toTopOf="@+id/textView_instructions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,8 +85,8 @@
             android:id="@+id/word_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/word_count"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:text="@{@string/word_count(gameViewModel.currentWordCount, maxNoOfWords)}"
             app:layout_constraintBottom_toTopOf="@+id/textView_unscrambled_word"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -93,7 +96,7 @@
             android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/score"
+            android:text="@{@string/score(gameViewModel.score)}"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             app:layout_constraintEnd_toEndOf="parent"

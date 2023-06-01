@@ -68,7 +68,7 @@ class GameFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         // Update the UI
         updateNextWordOnScreen()
-        
+
     }
 
     /*
